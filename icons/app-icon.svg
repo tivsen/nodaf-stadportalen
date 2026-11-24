@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="104" fill="#173b5a"/>
+  <text x="256" y="154" fill="#fff" font-family="DejaVu Sans,Arial,sans-serif" font-size="70" font-weight="bold" text-anchor="middle">NODAF</text>
+  <path d="M320 284L354 220H379" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="189" y="274" width="152" height="93" rx="29" fill="#fff"/>
+  <rect x="212" y="290" width="80" height="34" rx="12" fill="#91c2d2"/>
+  <path d="M194 344H335" stroke="#91c2d2" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="225" cy="374" r="24" fill="#173b5a" stroke="#fff" stroke-width="9"/>
+  <circle cx="315" cy="374" r="24" fill="#173b5a" stroke="#fff" stroke-width="9"/>
+  <rect x="170" y="405" width="191" height="18" rx="9" fill="#e89453"/>
+</svg>
