@@ -31,3 +31,14 @@ body.home-mode .portal-body strong{max-width:100%;text-align:center}
 .page-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 /* Supervisor sign-in uses a full-page navigation to the platform identity provider. */
 .auth-link{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:10px;background:#163a62;color:#fff!important;text-decoration:none;font-weight:700;margin-top:12px}
+/* Installera-knappen delar toppfält med Mina sidor. */
+.appbar-actions{display:flex;align-items:center;gap:2px;margin-left:auto}
+/* Veckans två nyckeltal visas sida vid sida. */
+.stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+.install-dialog{border:0;border-radius:16px;width:min(420px,calc(100vw - 32px));padding:0;box-shadow:0 24px 65px #0e28404d;color:#18332e}
+.install-dialog::backdrop{background:#0c294c80}
+.install-dialog-content{padding:24px}
+.install-dialog h2{font-size:20px;margin:0 0 12px}
+.install-dialog p{font-size:15px;line-height:1.6;color:#456073;white-space:pre-line}
+.install-dialog button{margin-top:12px}
+@media(max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat{padding:14px 10px}.stat-number{font-size:clamp(22px,5vw,31px)}}
