@@ -79,3 +79,10 @@ body.home-mode .portal-body strong{max-width:100%;text-align:center}
 @media(max-width:600px){.location-choice{width:100%;justify-content:space-between}.location-choice select{flex:1}.day-checkboxes{gap:3px}.day-checkboxes label{font-size:9px!important;min-height:55px}.setting-actions{gap:5px}.setting-actions button{font-size:12px;padding:8px 9px}}
 /* Samma mått på Redigera och Ta bort i meddelandelistan. */
 .message-admin .secondary,.message-admin .danger-button{font-size:11px;line-height:normal;padding:10px 14px}
+/* Samlad ortsuppföljning och konsekventa åtgärdsknappar. */
+.town-breakdown{display:grid;gap:0;margin-top:14px;border-top:1px solid #e5ece9}
+.town-row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid #edf2ef;font-size:13px;color:#405a50}
+.town-row strong{color:#173653;font-size:14px;font-variant-numeric:tabular-nums}
+.town-note{display:block;color:#77877f;font-size:11px!important;line-height:1.4;margin-top:8px}
+.setting-actions .secondary,.setting-actions .danger-button{font-size:11px!important;line-height:normal!important;padding:10px 14px!important;min-height:37px;box-sizing:border-box}
+.calendar-marks{flex-direction:column;align-items:flex-start}
