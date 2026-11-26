@@ -77,3 +77,5 @@ body.home-mode .portal-body strong{max-width:100%;text-align:center}
 .message-until{color:#677b76;font-size:12px}
 .message-card>p{white-space:pre-line;line-height:1.55;color:#39564d;margin-bottom:8px}
 @media(max-width:600px){.location-choice{width:100%;justify-content:space-between}.location-choice select{flex:1}.day-checkboxes{gap:3px}.day-checkboxes label{font-size:9px!important;min-height:55px}.setting-actions{gap:5px}.setting-actions button{font-size:12px;padding:8px 9px}}
+/* Samma mått på Redigera och Ta bort i meddelandelistan. */
+.message-admin .secondary,.message-admin .danger-button{font-size:11px;line-height:normal;padding:10px 14px}
