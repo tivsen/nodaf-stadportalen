@@ -86,3 +86,5 @@ body.home-mode .portal-body strong{max-width:100%;text-align:center}
 .town-note{display:block;color:#77877f;font-size:11px!important;line-height:1.4;margin-top:8px}
 .setting-actions .secondary,.setting-actions .danger-button{font-size:11px!important;line-height:normal!important;padding:10px 14px!important;min-height:37px;box-sizing:border-box}
 .calendar-marks{flex-direction:column;align-items:flex-start}
+.history-actions{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.history-actions .danger-button{font-size:12px;line-height:normal;padding:7px 10px}
