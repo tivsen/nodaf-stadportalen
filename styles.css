@@ -54,3 +54,26 @@ body.home-mode .portal-body strong{max-width:100%;text-align:center}
 .calendar-marks .mark.blue .mark-dot{background:#658ecb}
 .calendar-marks .mark-count{font-size:12px;font-weight:700;color:#4b6069}
 @media(max-width:600px){.calendar-marks .mark-dot{width:10px;height:10px}.calendar-marks .mark-count{font-size:10px}}
+
+/* Förenklad startsida och rena formulär. */
+.portal-card.placeholder,.recent-panel,#modal-eyebrow,#history .eyebrow,#settings .eyebrow{display:none}
+.day-checkboxes label{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:65px;padding:8px 2px!important;line-height:1.1}
+.day-checkboxes label span{color:inherit;font-weight:600}
+.location-radios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:8px 0 22px}
+.location-radios label{display:flex!important;align-items:center;justify-content:center;gap:6px;min-height:46px;border:1px solid #dce8e1;border-radius:8px;padding:8px 5px;margin:0!important;cursor:pointer}
+.location-radios input{width:auto}
+.setting-actions,.message-admin{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.danger-button{background:#fff3f2;border:1px solid #e6b3ad;color:#a52722;border-radius:8px;padding:9px 12px;font-weight:700}
+.danger-button:hover{background:#ffe0dd}
+.location-choice{display:flex!important;align-items:center;gap:8px;margin:0!important;font-size:13px!important}
+.location-choice select{min-width:142px;padding:9px 26px 9px 11px}
+.message-count{position:absolute;top:8px;right:8px;background:#e88736;color:#fff;font-weight:800;border-radius:999px;min-width:23px;height:23px;display:grid;place-items:center;padding:0 5px;font-size:12px;box-shadow:0 1px 5px #0002}
+.message-count[hidden]{display:none}
+.message-actions{display:flex;justify-content:flex-end;margin-bottom:16px}
+.message-list{display:grid;gap:12px}
+.message-card{padding:20px}
+.message-card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.message-card-head h2{margin:0}
+.message-until{color:#677b76;font-size:12px}
+.message-card>p{white-space:pre-line;line-height:1.55;color:#39564d;margin-bottom:8px}
+@media(max-width:600px){.location-choice{width:100%;justify-content:space-between}.location-choice select{flex:1}.day-checkboxes{gap:3px}.day-checkboxes label{font-size:9px!important;min-height:55px}.setting-actions{gap:5px}.setting-actions button{font-size:12px;padding:8px 9px}}

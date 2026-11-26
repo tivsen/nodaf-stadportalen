@@ -38,13 +38,14 @@
   const query = (table, params, accessToken) => request(`/rest/v1/${table}?${params}`, { token: accessToken });
   async function bootstrap(admin) {
     const accessToken = admin ? await token() : null;
-    const [objects, staff, config] = await Promise.all([
-      query('cleaning_objects', 'select=id,name,days&order=name.asc', accessToken),
+    const [objects, staff, config, messages] = await Promise.all([
+      query('cleaning_objects', 'select=id,name,days,location,active&order=name.asc', accessToken),
       query('cleaning_staff', 'select=name&order=name.asc', accessToken),
-      query('cleaning_config', 'select=anchor&id=eq.true', accessToken)
+      query('cleaning_config', 'select=anchor&id=eq.true', accessToken),
+      query('cleaning_messages', 'select=id,title,body,expires_on,created_at&order=created_at.desc', accessToken)
     ]);
     const records = admin ? (await query('cleaning_records', 'select=id,object_id,employee,at,kind,slot,comment,void&order=at.desc', accessToken)).map(mapRecord) : [];
-    return { objects, staff: staff.map(x => x.name), records, audit: [], anchor: config[0]?.anchor || '2026-11-23' };
+    return { objects, staff: staff.map(x => x.name), messages, records, audit: [], anchor: config[0]?.anchor || '2026-11-23' };
   }
 
   async function supervisor() {
@@ -87,7 +88,7 @@
       return request('/rest/v1/rpc/cleaning_report_run', { method: 'POST', body: { p_object_id: data.objectId, p_employee: data.employee, p_extra: Boolean(data.extra), p_comment: data.comment || '' } });
     }
     if (path === '/api/admin/object') {
-      const object = { name: data.name, days: data.days };
+      const object = { name: data.name, days: data.days, location: data.location };
       if (data.id) return adminWrite('cleaning_objects', 'PATCH', object, `id=eq.${encodeURIComponent(data.id)}`);
       object.id = crypto.randomUUID();
       return adminWrite('cleaning_objects', 'POST', object);
@@ -95,6 +96,19 @@
     if (path === '/api/admin/staff') {
       if (data.remove) return adminWrite('cleaning_staff', 'DELETE', undefined, `name=eq.${encodeURIComponent(data.name)}`);
       return adminWrite('cleaning_staff', 'POST', { name: data.name });
+    }
+    if (path === '/api/admin/archive-object') {
+      return adminWrite('cleaning_objects', 'PATCH', { active: false }, `id=eq.${encodeURIComponent(data.id)}`);
+    }
+    if (path === '/api/admin/message') {
+      const row = { title: data.title, body: data.body, expires_on: data.expiresOn };
+      if (data.id) return adminWrite('cleaning_messages', 'PATCH', row, `id=eq.${encodeURIComponent(data.id)}`);
+      const accessToken = await token();
+      const user = await request('/auth/v1/user', { token: accessToken });
+      return adminWrite('cleaning_messages', 'POST', { ...row, created_by: user.id });
+    }
+    if (path === '/api/admin/delete-message') {
+      return adminWrite('cleaning_messages', 'DELETE', undefined, `id=eq.${encodeURIComponent(data.id)}`);
     }
     if (path === '/api/admin/record') {
       const row = { object_id: data.objectId, employee: data.employee, at: data.at, kind: data.extra ? 'extra' : 'ordinary', slot: null, comment: data.comment || '', void: Boolean(data.void) };
